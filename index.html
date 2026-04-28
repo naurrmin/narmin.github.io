@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BigPlanetarium - Bristol's premier space education centre.">
+    <meta name="theme-color" content="#04050f">
+
+    <!--open graph for social sharing-->
+    <meta property="og:title"       content="BigPlanetarium - Explore the Milky Way">
+    <meta property="og:description" content="Bristol's premier space education centre. Discover planets, galaxies and wonders of our universe.">
+    <meta property="og:type"        content="website">
+
+    <title>Big Planetarium - Explore the Milky Way </title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--inline data url-->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23f0c040' /><circle cx='16' cy='16' r='8' fill='%23080d1f' /></svg>" >
+
+</head>
+<body>
+
+    <!--skip link -->
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- animated star background canvas -->
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <div class="page-wrapper">
+
+        <!-- site header and navigation -->
+    <header class="site-header" role="banner">
+        <div class="nav-inner">
+            <!--logo and  home link--> 
+            <a class="nav-logo" href="index.html" aria-label="BigPlanetarium - Home">
+                <!--inline SVG logo -->
+                <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5"></circle>
+                <circle cx="20" cy="20" r="8" fill="#f0c040" opacity="0.9"></circle>
+                <ellipse cx="20" cy="20" rx="18" ry="6"
+                         stroke="#38d9c0" stroke-width="1" fill="none"
+                         transform="rotate(-20 20 20)"></ellipse>
+            </svg>
+            <span class="nav-logo-text">
+                BigPlanetarium
+                <span>Bristol Space Centre</span>
+            </span>
+            </a>
+
+            <!--Mobile hamburger toggle-->
+            <button class="nav-toggle"
+                    aria-controls="primary-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation menu">
+                <span class="icon-menu" aria-hidden="true">=</span>
+                <span class="icon-close" aria-hidden="true">✕</span>
+                </button>
+
+            <!-- primary navigation-->
+             <nav aria-label="Primary navigation">
+                <ul class="nav-list" id="primary-nav" role="list">
+                    <li><a href="index.html"  aria-current="page">Home</a></li>
+                    <li><a href="planets.html">Planets</a></li>
+                    <li><a href="earth.html">Earth</a></li>
+                    <li><a href="about.html">Visit Us</a></li>
+                </ul>
+             </nav>
+
+            <!--accessibility :high contrast toggle-->
+            <button class="contrast-btn"
+                    aria-pressed="false"
+                    title="Toggle high contrast mode">
+                High Contrast
+                </button>
+
+        </div>
+    </header>
+
+<!--main content -->
+
+<main id="main-content" tabindex="-1">
+    <!--hero-->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-bg" aria-hidden="true">
+            <!-- background hero image - decorative -->
+             <img src="https://i.pinimg.com/736x/ef/42/42/ef42428cfea529c6199ad999da913013.jpg"
+                  alt=""
+                  loading="eager"
+                  fetchpriority="high" >
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-eyebrow" aria-hidden="true">Bristol Space Centre</p>
+            <h1 class="hero-title" id="hero-heading">
+                Our Universe <br> Begins <em>Here</em>
+            </h1>
+            <p class="hero-subtitle">
+                Go to the Milky Way, go in our solar system, and explore 
+             what is unique in each planet - of all the curious minds.
+            </p>
+            <div class="hero-cta-group">
+                <a class="btn btn-primary" href="planets.html">
+                    Explore the Planets
+                </a>
+                <a class="btn btn-outline" href="about.html">
+                    Plan Your Visit
+                </a>
+            </div>    
+        </div>
+    </section>
+
+    <!-- stats strip -->
+     <section class="stats-strip" aria-label="Galaxy facts at a glance">
+        <div class="container">
+            <dl class="stats-grid">
+                <div class="stat-item">
+                    <dt class="stat-label">Stars in Milky Way</dt>
+                    <dd class="stat-number">200-400<abbr title="billion"> Bn </abbr> </dd>
+                </div>
+                <div class="stat-item">
+                    <dt class="stat-label">Diameter</dt>
+                    <dd class="stat-number">105,700 <abbr title="light years">ly</abbr> </dd>
+                </div>
+                <div class="stat-item">
+                    <dt class="stat-label">Age</dt>
+                    <dd class="stat-number">13.6 <abbr title="billion years"> By </abbr> </dd>
+                </div>
+                <div class="stat-item">
+                    <dt class="stat-label">Planets in Solar System</dt>
+                    <dd class="stat-number">8</dd>
+                </div>
+            </dl>
+        </div>
+     </section>
+
+     <!-- milky way overview -->
+      <section class="section" aria-labelledby="milkyway-heading">
+        <div class="container">
+            <div class="milkyway-layout">
+
+                <!--image side -->
+                <div class="milkyway-img-wrap reveal">
+                    <img 
+                    src="https://i.pinimg.com/1200x/03/68/31/0368312ffda9755abd10b7ecb6862632.jpg"
+                    alt="A photograph of the Milky way galaxy arching across a dark night sky"
+                    loading="lazy"
+                    width="900"
+                    height="600">
+                </div>
+                <!-- text side -->
+                 <div class="milkyway-text reveal">
+                    <p class="section-label">Our Galaxy</p>
+                    <h2 id="milkyway-heading">The Milky Way</h2>
+                    <p>
+                        The Milky Way is a <strong>barred spiral galaxy</strong> , our cosmic home.
+                        It stretches across roughly 105,700 light-years and contains between 200 and 
+                        400 billion starts , including our own Sun.
+                    </p>
+                    <p>
+                        From Earth , we can see the Milky Way as a pale band of light stretching
+                        across the night sky . What we're actually seeing is our galaxy viewed
+                        edge on , billions of stars too distant to resolve individually.
+                    </p>
+                    <p>
+                        At the very centre of the Milky Way lies <strong>Sagittarius A*</strong>,
+                        a supermassive block hole estimated to be around 4 million times the mass
+                        of our Sun.
+                    </p>
+                    <a class="btn btn-outline" href="planets.html" style="margin-top:1rem;">
+                        Discover Our Solar System
+                    </a>
+                 </div>
+
+            </div>
+        </div>
+      </section>
+
+      <!-- structure of the milky way -->
+       <section class="section" aria-labelledby="structure-heading"
+                style="background:var(--clr-surface); border-top:1px solid var(--clr-border); border-bottom:1px solid var(--clr-border);">
+            <div class="container">
+                <p class="section-label">Structure</p>
+                <h2 class="section-title" id="structure-heading">Anatomy of a Galaxy</h2>
+                <p class="section-lead">
+                    The Milky Way is composed of several distinct regions , each playing its own
+                    role in the life of our galaxy.
+                </p>
+
+                <!--accessible expandable content-->
+                <div class="accordion" role="list">
+
+                    <div class="accordion-item" role="listitem">
+                        <h3>
+                            <button class="accordion-btn"
+                                    aria-expanded="false"
+                                    aria-controls="acc-bulge"
+                                    id="acc-bulge-btn">
+                              The Galactic Bulge
+                              <span class="accordion-icon" aria-hidden="true">+</span>
+                                </button>
+                        </h3>
+                        <div class="accordion-panel" id="acc-bulge" role="region" aria-labelledby="acc-bulge-btn">
+                            <p>
+                                The central bulge is a dense , roughly spherical region at the heart of the 
+                                Milky Way , roughly 10,000 light years in radius. It contains older , redder
+                                starts and is home to Sagittarius A* , our galaxy's supermassive black hole.
+                                The bulge is bar-shaped , giving the Milky Way its classification as a 
+                                <em>barred spiral</em> galaxy .
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item" role="listitem">
+                        <h3>
+                            <button class="accordion-btn"
+                                    aria-expanded="false"
+                                    aria-controls="acc-disk"
+                                    id="acc-disk-btn">
+                              The Galactic Disk 
+                              <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel" id="acc-disk" role="region" aria-labelledby="acc-disk-btn">
+                            <p>
+                                This is the thin , flat region extending outward from the bulge . Our Sun sits 
+                                within the disk , roughly 26,000 light years from the galactic centre.
+                                The disk contains most of the galaxy's gas , dust and star forming regions . 
+                                The spiral arms , including the orion arm , which we inhabit , wind through 
+                                the disk .
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item" role="listitem">
+                        <h3>
+                            <button class="accordion-btn"
+                                    aria-expanded="false"
+                                    aria-controls="acc-halo"
+                                    id="acc-halo-btn">
+                              The Galactic Halo 
+                              <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel" id="acc-halo" role="region" aria-labelledby="acc-halo-btn">
+                            <p>
+                                The halo is a roughly spherical region surrounding the disk and bulge,
+                                extending up to 100,000 light-years. It contains old , metal-poor stars and 
+                                <em>globular clusters</em> , ancient , tightly packed groups of stars.
+                                The halo also likely contains a large proportion of the galaxy's mysterious 
+                                dark matter.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item" role="listitem">
+                        <h3>
+                            <button class="accordion-btn"
+                                    aria-expanded="false"
+                                    aria-controls="acc-arms"
+                                    id="acc-arms-btn">
+                              The Spiral arms
+                              <span class="accordion-icon" aria-hidden="true">+</span>
+                            </button>
+                        </h3>
+                        <div class="accordion-panel" id="acc-arms" role="region" aria-labelledby="acc-arms-btn">
+                            <p>
+                                The Milky Way is composed of four major spiral arms which include the Perseus Arm, the
+                                The Crux-Scutum Arm, the Carina-Sagittarius Arm and the Norma-Outer Arm.
+                                Our Sun is in a smaller structure referred to as the Orion Spur. These arms are
+                                they are more dense with stars and have active stars, and hence are regions of higher stellar density.
+                                more noticeable and vivid in the general composition of the galaxy.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </section>
+        
+        <!-- video section -->
+         <section class="section" aria-labelledby="video-heading">
+            <div class="container">
+                <p class="section-label">Watch &amp; Learn </p>
+                <h2 class="section-title" id="video-heading">The Milky Way in Motion</h2>
+                <p class="section-lead">
+                    Take a journey through our galaxy with this visualisation by NATgeokids.
+                </p>
+
+        <!-- responsive video wrapper-->
+         <div class="video-wrap reveal" style="max-width:800px;">
+            <!--iframe -->
+             src="<iframe width="560" height="315" src="https://www.youtube.com/embed/Yni3hpdZe88?si=bKr507XheTjr11J_" 
+             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+             gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
+         </div>
+
+         <p style="color:var(--clr-muted);font-size:0.9rem;margin-top:0.75rem;">
+            <em>Video: NAT Geo Kids - Milky Way Galaxy Visualisation.
+                <a href="https://youtu.be/Yni3hpdZe88?si=aeuWGSdhlCmuO7vg"
+                   rel="noopener noreferrer" target="_blank"
+                   style="color:var(--clr-accent-teal);">
+                   Watch on Youtube 
+                </a>
+            </em>
+            </p>
+            </div>
+         </section>
+
+    <!-- planet preview grid -->
+     <section class="section" aria-labelledby="planets-preview-heading">
+        <div class="container">
+            <p class="section-label">Solar System</p>
+            <h2 class="section-title" id="planets-preview-heading">
+                Meet the Planets
+            </h2>
+            <p class="section-lead">
+                Our solar system is home to eight remarkable worlds. Click any planet 
+                to dive deeper into its story.
+            </p>
+
+            <ul class="planets-grid" role="list">
+                <!--mercury-->
+                <li>
+                    <a class="planet-card" href="planets.html#mercury" aria-label="Mercury - the innermost planet. Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/1200x/ad/c9/0b/adc90b210ef8bedb127a4bb24db3a99c.jpg"
+                                 alt="Mercury - a greyish-blue heavily cratered rocky planet seen from space"
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge">Terrestrial</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Mercury</h3>
+                            <p class="planet-card-desc">The smallest planet and closest to the sun. Extreme temperature swings and a crater covered surface.</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- venus -->
+                <li>
+                    <a class="planet-card" href="planets.html#venus" aria-label="Venus - The hottest planet . Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/1200x/00/92/0f/00920f6c8a440416c9ba3ffca76faad2.jpg"
+                                 alt="Venus - a bright yellowish planet"
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge">Terrestrial</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Venus</h3>
+                            <p class="planet-card-desc">The hottest planet in our solar system, despite not being the closest to sun.</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- earth -->
+                <li>
+                    <a class="planet-card" href="earth.html" aria-label="Earth - our home planet. Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/736x/45/03/dd/4503ddb51b1d1101616784991b7b17d3.jpg"
+                                 alt="Earth seen from space - a blue and white marble with swirling clouds and continents"
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge" style="color:var(--clr-accent-gold);">Our Home</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Earth</h3>
+                            <p class="planet-card-desc">Our pale blue dot. The only planet to support life that is known to have a magnetic field and a life-supporting atmosphere.</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- mars -->
+                <li>
+                    <a class="planet-card" href="planets.html#mars" aria-label="Mars - The Red Planet . Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/736x/e0/be/a0/e0bea09fd3261b3c7c8287c29c8a54f0.jpg"
+                                 alt="Mars - A reddish brown rocky planet"
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge">Terrestrial</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Mars</h3>
+                            <p class="planet-card-desc">The red planet - home to Olympus Mons , the tallest volcano in the solar system</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- jupiter -->
+                <li>
+                    <a class="planet-card" href="planets.html#jupiter" aria-label="Jupiter - The largest planet . Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/1200x/7c/ef/37/7cef37544245c497dcde7f5256eb8622.jpg"
+                                 alt="Jupiter - a gas gaint with orange and white horizontal bands "
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge">Gas Giant</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Jupiter</h3>
+                            <p class="planet-card-desc">The largest planet with the most moons . Its Great Red spot is a storm that has raged for over 350 years.</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- saturn -->
+                <li>
+                    <a class="planet-card" href="planets.html#saturn" aria-label="Saturn - The ringed planet . Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/736x/d1/fa/fe/d1fafe8a6fc3e55d63b109448d30e19b.jpg"
+                                 alt="Saturn - a golden gas gaint with its iconic system of rings"
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge">Gas Giant</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Saturn</h3>
+                            <p class="planet-card-desc">Famous for its stunning ring system. Saturn is so light it could theoretically float on water.</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- uranus -->
+                <li>
+                    <a class="planet-card" href="planets.html#uranus" aria-label="Uranus - the tilted planet . Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/1200x/ea/4a/a5/ea4aa5cb71d281f97c518bddcced798e.jpg"
+                                 alt="Uranus - a pale blue ice gaint with faint rings "
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge">Ice Gaint</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Uranus</h3>
+                            <p class="planet-card-desc">An Ice gaint that rotates on its side with a tilt . It has a faint ring system and 27 known moons.</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- neptune -->
+                <li>
+                    <a class="planet-card" href="planets.html#neptune" aria-label="Neptune - the farthest planet . Learn more.">
+                        <div class="planet-card-img">
+                            <img src="https://i.pinimg.com/736x/9e/fa/be/9efabec408dce4930112f8e8c346ae2e.jpg"
+                                 alt="Neptune - a deep blue ice gaint with visible cloud bands and storm systems "
+                                 loading="lazy" width="600" height="400">
+                            <span class="planet-card-badge">Ice Gaint</span>
+                        </div>
+                        <div class="planet-card-body">
+                            <h3 class="planet-card-name">Neptune</h3>
+                            <p class="planet-card-desc">The farthest planet with the strongest winds in the solar system , gusting up to 2,100 km/h.</p>
+                            <span class="planet-card-link" aria-hidden="true">Explore</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div style="text-align:center; margin-top:var(--space-lg);">
+                <a class="btn btn-primary" href="planets.html">View All Planets in Detail</a>
+            </div>
+        </div>
+     </section>
+
+     <!-- accessibility toolbar -->
+      <div role="complementary" aria-label="Accessibility tools"
+      style="background:var(--clr-deep); border-top:1px solid var(--clr-border); padding:var(--space-sm) 0;">
+      <div class="container"
+           style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <span style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.15em;color:var(--clr-muted);text-transform:uppercase">
+            Text Size:
+        </span>
+        <button class="font-decrease contrast-btn" aria-label="Decrease text size">A-</button>
+        <button class="font-reset contrast-btn" aria-label="Reset text size">A</button>
+        <button class="font-increase contrast-btn" aria-label="Increase text size">A+</button>
+        </div>
+    </div>
+
+</main>
+
+<!-- footer -->
+
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <a class="nav-logo" href="index.html" aria-label="BigPlanetarium - Home">
+                    <svg width="30" height="30" viewBox="0 0 40 40" fill="none"
+                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5"></circle>
+                    <circle cx="20" cy="20" r="8" fill="#f0c040" opacity="0.9"></circle>
+                    <ellipse cx="20" cy="20" rx="18" ry="6"
+                             stroke="#38d9c0" stroke-width="1" fill="none"
+                             transform="rotate(-20 20 20)"></ellipse>
+                    </svg>
+                    <span class="nav-logo-text" style="font-size:0.9rem;">BigPlanetarium</span>
+                </a>
+                <p>Bristol's premier space education centre, inspiring curiosity about the universe in people of all ages.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="planets.html">All Planets</a></li>
+                    <li><a href="earth.html">Earth</a></li>
+                    <li><a href="about.html">Visit Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Planets</h4>
+                <ul>
+                    <li><a href="planets.html#mercury">Mercury</a></li>
+                    <li><a href="planets.html#venus">Venus</a></li>
+                    <li><a href="planets.html#mars">Mars</a></li>
+                    <li><a href="planets.html#jupiter">Jupiter</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Visit</h4>
+                <ul>
+                    <li><a href="planets.html#opening">Opening Hours</a></li>
+                    <li><a href="planets.html#schools">Schools</a></li>
+                    <li><a href="planets.html#contact">Contact</a></li>
+                    <li><a href="planets.html#accessibility">Accessibility</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p> &copy; 2025 BigPlanetarium, Bristol. Educational prototype website.</p>
+            <p>
+                Images: <a href="https://in.pinterest.com/" rel="noopener noreferrer" target="_blank">Pinterest</a>
+                (public domain / CCO ).
+            </p>
+        </div>
+    </div>
+</footer>
+</div> 
+<!-- page wrapper -->
+ <!--lightbox modal -->
+ <div id="lightbox" class="lightbox-overlay"
+      role="dialog" aria-modal="true"
+      aria-label="Image viewer"
+      aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">✕</button>
+    <img id="lightbox-img" src="" alt="" >
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
