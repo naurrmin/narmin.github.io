@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Earth — our pale blue dot. Learn about its atmosphere, oceans, magnetic field, and the conditions that make it the only known planet to support life." />
+  <title>Earth — BigPlanetarium</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23f0c040'/><circle cx='16' cy='16' r='8' fill='%23080d1f'/></svg>" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <div class="page-wrapper">
+
+    <!-- header -->
+    <header class="site-header" role="banner">
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html" aria-label="BigPlanetarium — Home">
+          <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none"
+               xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5" />
+            <circle cx="20" cy="20" r="8"  fill="#f0c040" opacity="0.9" />
+            <ellipse cx="20" cy="20" rx="18" ry="6"
+                     stroke="#38d9c0" stroke-width="1" fill="none"
+                     transform="rotate(-20 20 20)" />
+          </svg>
+          <span class="nav-logo-text">
+            BigPlanetarium
+            <span>Bristol Space Centre</span>
+          </span>
+        </a>
+
+        <button class="nav-toggle"
+                aria-controls="primary-nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation menu">
+          <span class="icon-menu" aria-hidden="true">=</span>
+          <span class="icon-close" aria-hidden="true">✕</span>
+        </button>
+
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list" id="primary-nav" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planets.html">Planets</a></li>
+            <li><a href="earth.html" aria-current="page">Earth</a></li>
+            <li><a href="about.html">Visit Us</a></li>
+          </ul>
+        </nav>
+
+        <button class="contrast-btn" aria-pressed="false" title="Toggle high contrast mode">
+          High Contrast
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+
+      <!-- planet header -->
+      <section class="planet-hero" aria-labelledby="earth-page-heading">
+        <div class="planet-hero-bg" aria-hidden="true">
+          <img src="https://i.pinimg.com/1200x/a0/ea/66/a0ea66f8c3942e92227729594aec8eda.jpg"
+               alt=""
+               loading="eager" />
+        </div>
+        <div class="planet-hero-content container">
+          <p class="planet-hero-label">Third Planet from the Sun</p>
+          <h1 class="planet-hero-title" id="earth-page-heading">Earth</h1>
+        </div>
+      </section>
+
+      <!-- breadcrumb -->
+      <nav aria-label="Breadcrumb" class="container">
+        <ol class="breadcrumb" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li aria-hidden="true" class="breadcrumb-sep">›</li>
+          <li><a href="planets.html">Planets</a></li>
+          <li aria-hidden="true" class="breadcrumb-sep">›</li>
+          <li aria-current="page">Earth</li>
+        </ol>
+      </nav>
+
+      <!-- main details -->
+      <section class="section" aria-labelledby="earth-overview-heading">
+        <div class="container">
+          <div class="planet-detail-layout">
+
+            <!-- main text  -->
+            <div class="planet-detail-body">
+              <p class="section-label">Our Home Planet</p>
+              <h2 id="earth-overview-heading">The Pale Blue Dot</h2>
+
+              <p>
+                While Earth is only the <strong>fifth largest </strong>planet in the solar system, it is the 
+                only planet in our solar system with liquid water on the surface. Just slightly 
+                larger than nearby Venus, Earth is the biggest of the four planets closest to the 
+                Sun, all of which are made of rock and metal.
+              </p>
+              <p>
+                Earth is the only planet in the solar system whose English name does not come from Greek 
+                or Roman mythology. The name was taken from Old English and Germanic. It simply means<strong>"the ground." </strong> 
+                There are, of course, many names for our planet in the thousands of languages spoken by the people 
+                of the third planet from the Sun.
+              </p>
+
+              <h2>The Atmosphere</h2>
+              <p>
+                Earth is wrapped in a protective blanket of gas composed primarily of
+                <strong>nitrogen (78%)</strong> and <strong>oxygen (21%)</strong>, with traces
+                of argon, carbon dioxide, and other gases. This atmosphere serves several
+                critical functions:
+              </p>
+              <ul style="color:var(--clr-muted); padding-left:1.5rem; margin-bottom:var(--space-sm); line-height:2;">
+                <li>Absorbs harmful ultraviolet radiation from the Sun</li>
+                <li>Regulates surface temperature through the greenhouse effect</li>
+                <li>Provides the oxygen essential for most life forms</li>
+                <li>Burns up most meteors before they reach the surface</li>
+              </ul>
+
+              <h2>The Magnetic Field</h2>
+              <p>
+                Our planet's rapid rotation and molten nickel-iron core give rise to a<strong> magnetic 
+                field,</strong> which the solar wind distorts into a teardrop shape in space. (The solar 
+                wind is a stream of charged particles continuously ejected from the Sun.) When 
+                charged particles from the solar wind become trapped in Earth's magnetic field, 
+                they collide with air molecules above our planet's magnetic poles.
+              </p>
+
+              <h2>Earth's Moon</h2>
+              <p>
+                Earth is the only planet in our solar system with only<strong> one moon</strong>. Our Moon is the brightest 
+                and most familiar object in the night sky. In many ways, the Moon is responsible for making 
+                Earth such a great home. It stabilizes our planet's wobble, which has made the climate less 
+                variable over thousands of years.
+              </p>
+
+              <!-- photo gallery -->
+              <section aria-labelledby="gallery-heading" style="margin-top:var(--space-lg);">
+                <h2 id="gallery-heading">Earth from Space</h2>
+                <p style="color:var(--clr-muted);margin-bottom:var(--space-sm);">
+                  Click any image to view it in full size. All images are public domain or
+                  freely licensed.
+                </p>
+
+                <ul class="gallery-grid" role="list">
+                  <li>
+                    <figure class="gallery-item"
+                            tabindex="0"
+                            role="button"
+                            aria-label="View full size: The Blue Marble — Earth from Apollo 17"
+                            data-lightbox="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/0/885/modis_wonderglobe_lrg.jpg"
+                            data-alt="Earth from Apollo 17 — the full disc of Earth showing Africa, Antarctica, and swirling cloud formations"
+                            data-caption="The 'Blue Marble' — photographed by the Apollo 17 crew, 1972">
+                      <img src="https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/0/885/modis_wonderglobe_lrg.jpg"
+                           alt="Earth from space — showing Africa and Antarctica with swirling white clouds"
+                           loading="lazy" width="500" height="375" />
+                      <figcaption>The Blue Marble, Apollo 17</figcaption>
+                    </figure>
+                  </li>
+
+                  <li>
+                    <figure class="gallery-item"
+                            tabindex="0"
+                            role="button"
+                            aria-label="View full size: Earthrise over the Moon"
+                            data-lightbox="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/150000/150699/art001e000095_FD1_Earth1_orig.jpg?w=720&h=540&fit=clip&crop=faces%2Cfocalpoint"
+                            data-alt="Earth rising over the lunar horizon — a small blue and white sphere above the grey lunar surface"
+                            data-caption="Earthrise — photographed from lunar orbit">
+                      <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/150000/150699/art001e000095_FD1_Earth1_orig.jpg?w=720&h=540&fit=clip&crop=faces%2Cfocalpoint"
+                           alt="Earth rising above the horizon of the Moon, showing the blue planet against the blackness of space"
+                           loading="lazy" width="500" height="375" />
+                      <figcaption>Earthrise — from the Moon</figcaption>
+                    </figure>
+                  </li>
+
+                  <li>
+                    <figure class="gallery-item"
+                            tabindex="0"
+                            role="button"
+                            aria-label="View full size: Aurora Borealis from the ISS"
+                            data-lightbox="https://i.pinimg.com/736x/be/da/b7/bedab7f83283779652b79c8619fe3b9f.jpg"
+                            data-alt="Aurora Borealis photographed from the International Space Station — curtains of green and pink light over the polar regions"
+                            data-caption="Aurora Borealis — photographed from the ISS">
+                      <img src="https://i.pinimg.com/736x/be/da/b7/bedab7f83283779652b79c8619fe3b9f.jpg"
+                           alt="The Aurora Borealis — curtains of green light dancing over a dark landscape at night"
+                           loading="lazy" width="500" height="375" />
+                      <figcaption>Aurora Borealis</figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </section>
+
+              <!-- video-->
+              <section aria-labelledby="earth-video-heading" style="margin-top:var(--space-lg);">
+                <h2 id="earth-video-heading">Earth from the International Space Station</h2>
+                <p style="color:var(--clr-muted);margin-bottom:var(--space-sm);">
+                  Watch a stunning time-lapse of Earth as seen from the
+                  International Space Station, capturing city lights, auroras,
+                  and weather systems from 400 km above.
+                </p>
+                <div class="video-wrap reveal">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/FG0fTKAqZ5g?si=7YWrjn0rTLWHgFlq" 
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                  gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p style="color:var(--clr-muted);font-size:0.9rem;margin-top:0.5rem;">
+                  <em>Video: NASA — Earth from the ISS.
+                  <a href="https://youtu.be/FG0fTKAqZ5g?si=_Vwd6AWdwc_CxNia"
+                     rel="noopener noreferrer" target="_blank"
+                     style="color:var(--clr-accent-teal);">
+                    Watch on YouTube (opens in new tab)
+                  </a></em>
+                </p>
+              </section>
+
+              <!-- quiz -->
+              <section aria-labelledby="quiz-heading" style="margin-top:var(--space-lg);">
+                <h2 id="quiz-heading">Test Your Knowledge</h2>
+
+                <div class="quiz-card" id="planet-quiz" data-correct="2">
+                  <h3>Earth Quiz</h3>
+
+                  <p class="quiz-question" id="quiz-q1">
+                    What percentage of Earth's surface is covered by water?
+                  </p>
+
+                  <ul class="quiz-options" role="list" aria-labelledby="quiz-q1">
+                    <li role="listitem">
+                      <button class="quiz-option-btn"
+                              aria-describedby="quiz-feedback">
+                        50%
+                      </button>
+                    </li>
+                    <li role="listitem">
+                      <button class="quiz-option-btn"
+                              aria-describedby="quiz-feedback">
+                        61%
+                      </button>
+                    </li>
+                    <li role="listitem">
+                      <button class="quiz-option-btn"
+                              aria-describedby="quiz-feedback">
+                        71%
+                      </button>
+                    </li>
+                    <li role="listitem">
+                      <button class="quiz-option-btn"
+                              aria-describedby="quiz-feedback">
+                        82%
+                      </button>
+                    </li>
+                  </ul>
+
+                  <!-- result announce -->
+                  <p class="quiz-feedback"
+                     id="quiz-feedback"
+                     aria-live="polite"
+                     aria-atomic="true"></p>
+                </div>
+              </section>
+
+            </div><!-- planet detail -->
+
+            <!-- more facts  -->
+            <aside aria-label="Earth key facts and further reading">
+
+              <!-- facts table -->
+              <div class="planet-facts" style="margin-bottom:var(--space-md);">
+                <table class="facts-table">
+                  <caption>Earth — Key Facts</caption>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Type</th>
+                      <td>Terrestrial</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Diameter</th>
+                      <td>12,742 km</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Distance from Sun</th>
+                      <td>149.6 million km </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Orbital Period</th>
+                      <td>365.25 days</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Rotation Period</th>
+                      <td>23h 56m 4s</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Axial Tilt</th>
+                      <td>23.44°</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Moons</th>
+                      <td>1 (The Moon)</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Surface Temp</th>
+                      <td>−88°C to 58°C</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Known Life</th>
+                      <td>Yes — all known life in the universe</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- deep dives -->
+              <div style="margin-bottom:var(--space-md);">
+                <p style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.2em;color:var(--clr-accent-gold);text-transform:uppercase;margin-bottom:0.75rem;">
+                  Deep Dives
+                </p>
+                <div class="accordion" role="list">
+                  <div class="accordion-item" role="listitem">
+                    <h3>
+                      <button class="accordion-btn"
+                              aria-expanded="false"
+                              aria-controls="acc-layers"
+                              id="acc-layers-btn">
+                        Earth's Layers
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                      </button>
+                    </h3>
+                    <div class="accordion-panel" id="acc-layers"
+                         role="region" aria-labelledby="acc-layers-btn">
+                      <p>
+                        Earth has four main layers: the <strong>inner core</strong> (solid iron
+                        and nickel, ~1,220 km radius), the <strong>outer core</strong> (liquid
+                        iron, ~2,260 km thick), the <strong>mantle</strong> (silicate rock,
+                        ~2,900 km thick), and the <strong>crust</strong> (5–70 km thick).
+                        The movement of tectonic plates on the crust causes earthquakes,
+                        volcanoes, and the slow drift of continents.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item" role="listitem">
+                    <h3>
+                      <button class="accordion-btn"
+                              aria-expanded="false"
+                              aria-controls="acc-life"
+                              id="acc-life-btn">
+                        Why Can Earth Support Life?
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                      </button>
+                    </h3>
+                    <div class="accordion-panel" id="acc-life"
+                         role="region" aria-labelledby="acc-life-btn">
+                      <p>
+                        Earth sits in the Sun's <em>habitable zone</em> — the "Goldilocks
+                        region" where temperatures allow liquid water to exist. Combined with
+                        its protective magnetic field, ozone layer, stabilising Moon, and
+                        plate tectonics (which recycles carbon), Earth has maintained
+                        conditions suitable for life for over 3.5 billion years.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item" role="listitem">
+                    <h3>
+                      <button class="accordion-btn"
+                              aria-expanded="false"
+                              aria-controls="acc-seasons"
+                              id="acc-seasons-btn">
+                        Why Do We Have Seasons?
+                        <span class="accordion-icon" aria-hidden="true">+</span>
+                      </button>
+                    </h3>
+                    <div class="accordion-panel" id="acc-seasons"
+                         role="region" aria-labelledby="acc-seasons-btn">
+                      <p>
+                        Earth's seasons are caused by its axial tilt of 23.44°, not by its
+                        varying distance from the Sun (a common misconception). When the
+                        Northern Hemisphere tilts toward the Sun, it receives more direct
+                        sunlight and experiences summer. Six months later, it tilts away,
+                        receiving less sunlight — winter.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- other planet nav -->
+              <div class="info-box">
+                <h3>Explore Other Planets</h3>
+                <nav aria-label="Related planets">
+                  <ul style="list-style:none;">
+                    <li style="margin-bottom:0.5rem;">
+                      <a href="planets.html#venus"
+                         style="color:var(--clr-accent-gold);text-decoration:none;">
+                        Venus (2nd planet)
+                      </a>
+                    </li>
+                    <li>
+                      <a href="planets.html#mars"
+                         style="color:var(--clr-accent-gold);text-decoration:none;">
+                        Mars (4th planet)
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+            </aside>
+
+          </div><!-- planet detail stuff -->
+        </div>
+      </section>
+
+      <!-- accessibilty bar -->
+      <div role="complementary" aria-label="Accessibility tools"
+           style="background:var(--clr-deep); border-top:1px solid var(--clr-border); padding:var(--space-sm) 0;">
+        <div class="container"
+             style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+          <span style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.15em;color:var(--clr-muted);text-transform:uppercase;">
+            Text Size:
+          </span>
+          <button class="font-decrease contrast-btn" aria-label="Decrease text size">A−</button>
+          <button class="font-reset   contrast-btn" aria-label="Reset text size">A</button>
+          <button class="font-increase contrast-btn" aria-label="Increase text size">A+</button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="nav-logo" href="index.html" aria-label="BigPlanetarium — Home">
+              <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5"/>
+                <circle cx="20" cy="20" r="8" fill="#f0c040" opacity="0.9"/>
+                <ellipse cx="20" cy="20" rx="18" ry="6" stroke="#38d9c0" stroke-width="1" fill="none" transform="rotate(-20 20 20)"/>
+              </svg>
+              <span class="nav-logo-text" style="font-size:0.9rem;">BigPlanetarium</span>
+            </a>
+            <p>Bristol's premier space education centre.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="planets.html">All Planets</a></li>
+              <li><a href="earth.html">Earth</a></li>
+              <li><a href="about.html">Visit Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Planets</h4>
+            <ul>
+              <li><a href="planets.html#mercury">Mercury</a></li>
+              <li><a href="planets.html#venus">Venus</a></li>
+              <li><a href="planets.html#mars">Mars</a></li>
+              <li><a href="planets.html#jupiter">Jupiter</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Visit</h4>
+            <ul>
+              <li><a href="about.html">Plan a Visit</a></li>
+              <li><a href="about.html#contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 BigPlanetarium, Bristol.</p>
+          <p>Images: NASA / Pinterest (public domain).</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- lightbox -->
+  <div id="lightbox" class="lightbox-overlay"
+       role="dialog" aria-modal="true"
+       aria-label="Image viewer"
+       aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">✕</button>
+    <img id="lightbox-img" src="" alt="" />
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

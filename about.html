@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Visit BigPlanetarium in Bristol — opening hours, directions, school trips, and our accessibility commitment. Space is for everyone." />
+  <title>Visit Us — BigPlanetarium</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23f0c040'/><circle cx='16' cy='16' r='8' fill='%23080d1f'/></svg>" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <div class="page-wrapper">
+
+    <!-- header -->
+    <header class="site-header" role="banner">
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html" aria-label="BigPlanetarium — Home">
+          <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none"
+               xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5" />
+            <circle cx="20" cy="20" r="8"  fill="#f0c040" opacity="0.9" />
+            <ellipse cx="20" cy="20" rx="18" ry="6"
+                     stroke="#38d9c0" stroke-width="1" fill="none"
+                     transform="rotate(-20 20 20)" />
+          </svg>
+          <span class="nav-logo-text">
+            BigPlanetarium
+            <span>Bristol Space Centre</span>
+          </span>
+        </a>
+
+        <button class="nav-toggle"
+                aria-controls="primary-nav"
+                aria-expanded="false"
+                aria-label="Toggle navigation menu">
+          <span class="icon-menu" aria-hidden="true">=</span>
+          <span class="icon-close" aria-hidden="true">✕</span>
+        </button>
+
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list" id="primary-nav" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="planets.html">Planets</a></li>
+            <li><a href="earth.html">Earth</a></li>
+            <li><a href="about.html" aria-current="page">Visit Us</a></li>
+          </ul>
+        </nav>
+
+        <button class="contrast-btn" aria-pressed="false" title="Toggle high contrast mode">
+          High Contrast
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+
+      <!-- hero -->
+      <section class="planet-hero" aria-labelledby="about-heading"
+               style="height:50vh;min-height:320px;">
+        <div class="planet-hero-bg" aria-hidden="true">
+          <img src="https://i.pinimg.com/1200x/cc/35/94/cc3594c485595b87dffa1349df2c130d.jpg"
+               alt=""
+               loading="eager" >
+        </div>
+        <div class="planet-hero-content container">
+          <p class="planet-hero-label">BigPlanetarium, Bristol</p>
+          <h1 class="planet-hero-title" id="about-heading">Visit Us</h1>
+        </div>
+      </section>
+
+      <!-- breadcrumb -->
+      <nav aria-label="Breadcrumb" class="container">
+        <ol class="breadcrumb" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li aria-hidden="true" class="breadcrumb-sep">^</li>
+          <li aria-current="page">Visit Us</li>
+        </ol>
+      </nav>
+
+      <!--intro stuff-->
+      <section class="section" aria-labelledby="about-intro-heading">
+        <div class="container">
+          <div class="about-grid">
+            <div>
+              <p class="section-label">About Us</p>
+              <h2 class="section-title" id="about-intro-heading">Space Is For Everyone</h2>
+              <p style="color:var(--clr-muted);">
+                BigPlanetarium is Bristol's award winning space education centre. In our opinion,
+                The science and wonder of the universe should be interesting, engaging, accessible and 
+                exciting for all people of all ages and backgrounds.
+              </p>
+              <p style="color:var(--clr-muted);">
+                A school class on a field trip, or a family out on a weekend.
+                Whether a novice or an avid astronomy fan we welcome all ages.
+                Interactive experiences are made to spark curiosity and inspire the
+                explorers for the next generation.
+              </p>
+              <p style="color:var(--clr-muted);">
+                We ensure our physical and digital experiences are fully accessible to all.
+                Everyone should have the right to thoroughly accessible platforms and not
+                believe that science "is not for them".
+              </p>
+            </div>
+
+            <div>
+              <img src="https://i.pinimg.com/control1/1200x/f0/6b/34/f06b3411f05bfe19d817d29ec1517ac2.jpg"
+                   alt="The interior of a planetarium dome lit with projected stars — rows of seats reclined beneath a full-hemisphere star map"
+                   loading="lazy"
+                   width="700" height="500"
+                   style="width:100%;border-radius:10px;border:1px solid var(--clr-border);" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- other information -->
+      <section class="section" id="opening"
+               aria-labelledby="visit-info-heading"
+               style="background:rgba(255,255,255,0.02);border-top:1px solid var(--clr-border);border-bottom:1px solid var(--clr-border);">
+        <div class="container">
+          <p class="section-label">Practical Information</p>
+          <h2 class="section-title" id="visit-info-heading">Plan Your Visit</h2>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-md);">
+
+            <!-- opening hours -->
+            <div class="info-box">
+              <h3>Opening Hours</h3>
+              <table style="width:100%;border-collapse:collapse;" aria-label="BigPlanetarium opening hours">
+                <thead>
+                  <tr>
+                    <th scope="col" style="text-align:left;color:var(--clr-muted);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;padding-bottom:0.5rem;">Day</th>
+                    <th scope="col" style="text-align:left;color:var(--clr-muted);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;padding-bottom:0.5rem;">Hours</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Monday – Friday</td>
+                    <td style="color:var(--clr-muted);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">10:00 – 17:00</td>
+                  </tr>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Saturday</td>
+                    <td style="color:var(--clr-muted);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">09:00 – 18:00</td>
+                  </tr>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Sunday</td>
+                    <td style="color:var(--clr-muted);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">10:00 – 16:00</td>
+                  </tr>
+                  <tr>
+                    <td style="color:var(--clr-muted);font-style:italic;padding:0.35rem 0;">Bank Holidays</td>
+                    <td style="color:var(--clr-muted);font-style:italic;padding:0.35rem 0;">Closed</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Admission -->
+            <div class="info-box">
+              <h3>Admission</h3>
+              <table style="width:100%;border-collapse:collapse;" aria-label="BigPlanetarium admission prices">
+                <thead>
+                  <tr>
+                    <th scope="col" style="text-align:left;color:var(--clr-muted);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;padding-bottom:0.5rem;">Ticket</th>
+                    <th scope="col" style="text-align:left;color:var(--clr-muted);font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.1em;padding-bottom:0.5rem;">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Adult</td>
+                    <td style="color:var(--clr-accent-gold);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">AED 112.50</td>
+                  </tr>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Child (3–15)</td>
+                    <td style="color:var(--clr-accent-gold);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">AED 80.00</td>
+                  </tr>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Under 3</td>
+                    <td style="color:var(--clr-accent-gold);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Free</td>
+                  </tr>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">Concession</td>
+                    <td style="color:var(--clr-accent-gold);padding:0.35rem 0;border-bottom:1px solid var(--clr-border);">AED 70.50</td>
+                  </tr>
+                  <tr>
+                    <td style="color:var(--clr-star);padding:0.35rem 0;">Family (2+2)</td>
+                    <td style="color:var(--clr-accent-gold);padding:0.35rem 0;">AED 350.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- address and other info -->
+            <div class="info-box" id="contact">
+              <h3>Getting Here</h3>
+              <address>
+                <strong style="color:var(--clr-star);display:block;margin-bottom:0.5rem;">
+                  BigPlanetarium Bristol
+                </strong>
+                1 Millennium Square<br />
+                Bristol<br />
+                <a href="tel:123456789">+971 520 000 0000</a><br />
+                <a href="mailto:hello@bigplanetarium.co.ae">hello@bigplanetarium.co.ae</a>
+              </address>
+              <p style="margin-top:var(--space-sm);">
+                <strong style="color:var(--clr-star);">By Bus:</strong> Routes 8, 9, and 72 stop at Millennium Square.<br />
+                <strong style="color:var(--clr-star);">By Car:</strong> Nearest car park: Millennium Street . Blue Badge spaces available.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- schools -->
+      <section class="section" id="schools" aria-labelledby="schools-heading">
+        <div class="container">
+          <div class="about-grid">
+            <div>
+              <p class="section-label">Education</p>
+              <h2 class="section-title" id="schools-heading">School Trips</h2>
+              <p style="color:var(--clr-muted);">
+                Big Planetarium provides customized instructional programs tailored to the
+                National curriculum for key stages one through five. Our workshops as well as shows are.
+                Created to enhance space science’s luminescence, memory utility and relevance to the curriculum.
+              </p>
+              <p style="color:var(--clr-muted);">
+                With our dedicated education staff we are resourced for up to 150 students per day.
+                All materials are ready in accessible formats including large print and audio description.
+              </p>
+
+              <h3 style="font-family:var(--font-display);font-size:0.9rem;color:var(--clr-accent-gold);letter-spacing:0.1em;text-transform:uppercase;margin:var(--space-sm) 0 0.5rem;">
+                What's Included
+              </h3>
+              <ul style="color:var(--clr-muted);padding-left:1.5rem;line-height:2.2;">
+                <li>Full-dome planetarium show (40 minutes)</li>
+                <li>Guided exhibit tour with education officer</li>
+                <li>Interactive workshop (choose from 8 themes)</li>
+              </ul>
+
+              <a class="btn btn-primary" href="mailto:schools@bigplanetarium.co.ae"
+                 style="margin-top:var(--space-sm);">
+                Enquire About School Visits
+              </a>
+            </div>
+
+            <div>
+              <img src="https://i.pinimg.com/1200x/cd/7b/4f/cd7b4f2bae95ea9b7e4789a887904ae8.jpg"
+                   alt="A group of school children studying "
+                   loading="lazy"
+                   width="700" height="500"
+                   style="width:100%;border-radius:10px;border:1px solid var(--clr-border);" >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- accessibility -->
+      <section class="section" id="accessibility"
+               aria-labelledby="accessibility-heading"
+               style="background:rgba(255,255,255,0.02);border-top:1px solid var(--clr-border);border-bottom:1px solid var(--clr-border);">
+        <div class="container">
+          <p class="section-label">Inclusive Design</p>
+          <h2 class="section-title" id="accessibility-heading">
+            Our Accessibility Commitment
+          </h2>
+          <p class="section-lead">
+            We believe the wonders of the universe should be accessible to absolutely
+            everyone. Here's how we work to make that a reality.
+          </p>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-md);">
+
+            <div class="info-box reveal">
+              <h3>On This Website</h3>
+              <ul style="color:var(--clr-muted);padding-left:1.2rem;line-height:2.1;list-style:none;padding:0;">
+                <li>✓ &nbsp;Screen reader tested</li>
+                <li>✓ &nbsp;Full keyboard navigation</li>
+                <li>✓ &nbsp;High-contrast mode toggle</li>
+                <li>✓ &nbsp;Adjustable text size</li>
+                <li>✓ &nbsp;Captions on all videos</li>
+                <li>✓ &nbsp;Descriptive alt text for all images</li>
+              </ul>
+            </div>
+
+            <div class="info-box reveal">
+              <h3>At Our Venue</h3>
+              <ul style="color:var(--clr-muted);padding-left:0;line-height:2.1;list-style:none;">
+                <li>✓ &nbsp;Step-free access throughout</li>
+                <li>✓ &nbsp;Audio description headsets</li>
+                <li>✓ &nbsp;Relaxed sessions for neurodiverse visitors</li>
+                <li>✓ &nbsp;Changing Places toilet facility</li>
+                <li>✓ &nbsp;Induction loop system</li>
+                <li>✓ &nbsp;Large-print guides available</li>
+              </ul>
+            </div>
+
+            <div class="info-box reveal">
+              <h3>Relaxed Sessions</h3>
+              <p style="color:var(--clr-muted);">
+                Our Relaxed Sessions adapt planetarium shows for all our visitors.
+                Those who gain from a quieter, calmer atmosphere, including autistic visitors.
+                People who have sensory sensitivities, as well as learners with disabilities.
+              </p>
+              <p style="color:var(--clr-muted);margin-top:0.75rem;">
+                Held on the first Sunday of each month at 10:00 and 11:30.
+                Booking is required.
+              </p>
+              <a href="mailto:access@bigplanetarium.co.ae"
+                 style="color:var(--clr-accent-gold);font-size:0.95rem;">
+                Book a Relaxed Session 
+              </a>
+            </div>
+
+          </div>
+
+          <div class="info-box reveal" style="margin-top:var(--space-md);">
+            <h3>Feedback &amp; Further Help</h3>
+            <p style="color:var(--clr-muted);">
+              Making access easy to all is our goal. When you face it ,
+              please inform us of any obstacles at our site or on this website.
+              We don’t ignore any message and we take your feedback on accessibility seriously.
+            </p>
+            <p style="color:var(--clr-muted);margin-top:0.5rem;">
+              Contact our Access Coordinator:
+              <a href="mailto:access@bigplanetarium.co.ae">access@bigplanetarium.co.ae</a>
+              or call <a href="tel:123456789">+971 520 000 0000</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- team -->
+      <section class="section" aria-labelledby="team-heading">
+        <div class="container">
+          <p class="section-label">Meet the Team</p>
+          <h2 class="section-title" id="team-heading">The People Behind BigPlanetarium</h2>
+
+          <div class="team-grid">
+
+            <div class="team-card reveal">
+              <img class="team-card-avatar"
+                   src="https://i.pinimg.com/736x/c2/4d/0d/c24d0d7542ee6be66bf4270123c15df4.jpg"
+                   alt="asian woman headshot"
+                   loading="lazy" width="200" height="200" />
+              <h3>Dr Lee Ji-Un</h3>
+              <p>Director &amp; Lead Astronomer</p>
+            </div>
+
+            <div class="team-card reveal">
+              <img class="team-card-avatar"
+                   src="https://i.pinimg.com/1200x/a1/85/58/a18558cc2902c440c98d4ff079b573dc.jpg"
+                   alt="actor headshot"
+                   loading="lazy" width="200" height="200" />
+              <h3>Park Seojin</h3>
+              <p>Head of Education</p>
+            </div>
+
+            <div class="team-card reveal">
+              <img class="team-card-avatar"
+                   src="https://i.pinimg.com/1200x/05/5e/b6/055eb6c70dd322b25aa56475c476a8fd.jpg"
+                   alt="Sofia Martínez — woman with long dark hair smiling"
+                   loading="lazy" width="200" height="200" />
+              <h3>Sofia Miran</h3>
+              <p>Access &amp; Inclusion Lead</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- accessibility toolbar -->
+      <div role="complementary" aria-label="Accessibility tools"
+           style="background:var(--clr-deep); border-top:1px solid var(--clr-border); padding:var(--space-sm) 0;">
+        <div class="container"
+             style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+          <span style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.15em;color:var(--clr-muted);text-transform:uppercase;">
+            Text Size:
+          </span>
+          <button class="font-decrease contrast-btn" aria-label="Decrease text size">A−</button>
+          <button class="font-reset   contrast-btn" aria-label="Reset text size">A</button>
+          <button class="font-increase contrast-btn" aria-label="Increase text size">A+</button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="nav-logo" href="index.html" aria-label="BigPlanetarium — Home">
+              <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5"/>
+                <circle cx="20" cy="20" r="8" fill="#f0c040" opacity="0.9"/>
+                <ellipse cx="20" cy="20" rx="18" ry="6" stroke="#38d9c0" stroke-width="1" fill="none" transform="rotate(-20 20 20)"/>
+              </svg>
+              <span class="nav-logo-text" style="font-size:0.9rem;">BigPlanetarium</span>
+            </a>
+            <p>Bristol's premier space education centre.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="planets.html">All Planets</a></li>
+              <li><a href="earth.html">Earth</a></li>
+              <li><a href="about.html">Visit Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>This Page</h4>
+            <ul>
+              <li><a href="#opening">Opening Hours</a></li>
+              <li><a href="#schools">Schools</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#accessibility">Accessibility</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:hello@bigplanetarium.co.ae">Email Us</a></li>
+              <li><a href="tel:123456789">Call Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy;  2025 BigPlanetarium, Bristol.</p>
+          <p>Committed to accessibility standards.</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <div id="lightbox" class="lightbox-overlay"
+       role="dialog" aria-modal="true"
+       aria-label="Image viewer"
+       aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">✕</button>
+    <img id="lightbox-img" src="" alt="" />
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

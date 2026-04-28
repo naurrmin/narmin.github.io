@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tour all eight planets of our solar system ,from scorching Mercury to howling stormy  Neptune. BigPlanetarium, Bristol.">
+    <title>The Planets - BigPlanetarium</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23f0c040' /><circle cx='16' cy='16' r='8' fill='%23080d1f' /></svg>" >
+
+    <style>
+        /* page styles for planets*/
+        .planet-section {
+            padding: var(--space-xl) 0;
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .planet-section:nth-child(even){
+            background: rgba(255,255,255,0.02);
+        }
+
+        .planet-intro-layout {
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items:center;
+            margin-bottom : var(--space-lg);
+        }
+
+        .planet-intro-layout.reverse {
+            direction:rtl;
+        }
+
+        .planet-intro-layout.reverse > * {
+            direction:ltr;
+        }
+
+        .planet-visual {
+            position: relative;
+        }
+
+        .planet-visual img {
+            width:100%;
+            border-radius: 12px;
+            display: block;
+            border: 1px solid var(--clr-border);
+        }
+
+        .planet-number {
+            font-family: var(--font-display);
+            font-size:clamp(4rem, 10vw, 8rem);
+            font-weight:900;
+            color:rgba(255,255,255,0.04);
+            position:absolute;
+            top: -1rem;
+            right:-1rem;
+            line-height:1;
+            pointer-events:none;
+            user-select:none;
+        }
+
+        .planet-intro-text h2 {
+            font-family:var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            color:var(--clr-star);
+            margin-bottom:0.5rem;
+            line-height: 1.05;
+        }
+
+        .planet-type-tag {
+            display:inline-block;
+            font-family: var(--font-display);
+            font-size:0.6rem;
+            letter-spacing: 0.2em;
+            padding:0.3rem 0.8rem;
+            border-radius:20px;
+            border:1px solid;
+            text-transform: uppercase;
+            margin-bottom: var(--space-sm);
+        }
+
+        .tag-terrestrial { color: var(--clr-accent-teal); border-color: var(--clr-accent-teal);}
+        .tag-gas-giant {color: var(--clr-accent-gold); border-color: var(--clr-accent-gold);}
+        .tag-ice-giant {color:lightsteelblue; border-color: lightsteelblue;}
+        .tag-home {color: var(--clr-accent-rose); border-color: var(--clr-accent-rose);}
+
+        .planet-mini-facts {
+            display:flex;
+            flex-wrap: wrap;
+            gap:0.75rem;
+            margin: var(--space-sm) 0;
+        }
+
+        .mini-fact {
+            background:var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: 6px;
+            padding: 0.4rem 0.9rem;
+            font-family: var(--font-display);
+            font-size: 0.65rem;
+            color:var(--clr-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .mini-fact strong {
+            display:block;
+            color: var(--clr-accent-gold);
+            font-size:0.85rem;
+            margin-bottom:0.1rem;
+        }
+
+        @media (max-width:700px) {
+            .planet-intro-layout,
+            .planet-intro-layout.reverse {
+                grid-template-columns:  1fr;
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <div class="page-wrapper">
+
+        <!--header-->
+        <header class="site-header" role="banner">
+            <div class="nav-inner">
+                <a class="nav-logo" href="index.html" aria-label="BigPlanetarium - Home">
+                    <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none"
+                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                      <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5"></circle>
+                      <circle cx="20" cy="20" r="8" fill="#f0c040" opacity="0.9"></circle>
+                      <ellipse cx="20" cy="20" rx="18" ry="6"
+                                 stroke="#38d9c0" stroke-width="1" fill="none"
+                                 transform="rotate(-20 20 20)"></ellipse>
+                        </svg>
+                        <span class="nav-logo-text">
+                            BigPlanetarium
+                            <span>Bristol Space Centre</span>
+                        </span>
+                </a>
+
+                <button class="nav-toggle"
+                        aria-controls="primary-nav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation menu">
+                    <span class="icon-menu" aria-hidden="true">=</span>
+                    <span class="icon-close" aria-hidden="true">✕</span>
+                </button>
+
+                <nav aria-label="Primary navigation">
+                    <ul class="nav-list" id="primary-nav" role="list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="planets.html" aria-current="page">Planets</a></li>
+                        <li><a href="earth.html">Earth</a></li>
+                        <li><a href="about.html">Visit Us</a></li>
+                    </ul>
+                </nav>
+
+        <button class="contrast-btn" aria-pressed="false" title="Toggle High Contrast Mode">
+            High Contrast
+        </button>
+        </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+
+        <!--page hero -->
+        <section class="planet-hero" aria-labelledby="planets-page-heading">
+            <div class="planet-hero-bg" aria-hidden="true">
+                <img src="https://i.pinimg.com/1200x/34/a6/80/34a68000de1934a2227b9d00b51de0c1.jpg"
+                     alt=""
+                     loading="eager">
+            </div>
+            <div class="planet-hero-content container">
+                <p class="planet-hero-label">Our Solar System</p>
+                <h1 class="planet-hero-title" id="planets-page-heading">The Planets</h1>
+            </div>
+        </section>
+
+        <!-- breadcrumb -->
+         <nav aria-label="Breadcrumb" class="container">
+            <ol class="breadcrumb" role="list">
+                <li><a href="index.html">Home</a></li>
+                <li aria-hidden="true" class="breadcrumb-sep">-</li>
+                <li aria-current="page">Planets</li>
+            </ol>
+         </nav>
+
+         <!--intro-->
+         <section class="section" aria-labelledby="planets-intro-heading">
+            <div class="container">
+                <p class="section-label">Solar System</p>
+                <h2 class="section-title" id="planets-intro-heading">Eight Worlds , One Star</h2>
+                <p class="section-lead">
+                    The universe created our solar system, which is composed of a huge cloud of gas, 4.6 billion years ago.
+                    and dust. Now eight planets revolve round the Sun,each with its own peculiarity,
+                    past, and mysteries to be unravelled.
+                </p>
+            </div>
+         </section>
+
+         <!--mercury -->
+         <article class="planet-section" id="mercury" aria-labelledby="mercury-heading">
+            <div class="container">
+                <div class="planet-intro-layout">
+                    <div class="planet-visual reveal">
+                        <span class="planet-number" aria-hidden="true">01</span>
+                        <img src="https://i.pinimg.com/1200x/ad/c9/0b/adc90b210ef8bedb127a4bb24db3a99c.jpg"
+                             alt="Mercury - a greyish-blue heavily cratered rocky planet seen from space"
+                             loading="lazy" width="800" height="530">
+                    </div>
+                    <div class="planet-intro-text reveal">
+                        <span class="planet-type-tag tag-terrestrial">Terrestrial</span>
+                        <h2 id="mercury-heading">Mercury</h2>
+                        <p>
+                            Mercury is the <strong>closest and the tiniest planet</strong> our solar system.
+                            Mercury is a bit bigger than the Moon of the Earth. It is the quickest
+                            planet, orbiting the Sun in 88 days on Earth. Mercury is given the name
+                            of the fastest of the old Roman gods.
+                        </p>
+                        <p>
+                            Mercury is the second densest planet, after Earth. It has a large metallic core 
+                            with a radius of about<strong>1,289 miles (2,074 kilometers)</strong>, about 85% of the planet's 
+                            radius. There is evidence that it is partly molten or liquid. Mercury's outer shell, 
+                            comparable to Earth's outer shell (called the mantle and crust), is only about<strong> 400 
+                            kilometers (250 miles)</strong> thick.
+                        </p>
+                        <div class="planet-mini-facts" role="list" aria-label="Mercury key facts">
+                            <div class="mini-fact" role="listitem">
+                                <strong>88 days</strong>Orbital Period
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>4,879 km</strong>Diameter
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>0</strong>Moons
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>430°C</strong>Max Surface Temp
+                            </div>
+                        </div>
+                        <a class="btn btn-outline" href="earth.html">Compare to Earth</a>
+                    </div>
+                </div>
+            </div>
+         </article>
+
+         <!--venus -->
+         <article class="planet-section" id="venus" aria-labelledby="venus-heading">
+            <div class="container">
+                <div class="planet-intro-layout reverse">
+                    <div class="planet-visual reveal">
+                        <span class="planet-number" aria-hidden="true">02</span>
+                        <img src="https://i.pinimg.com/1200x/00/92/0f/00920f6c8a440416c9ba3ffca76faad2.jpg"
+                             alt="Venus - a bright yellowish planet"
+                             loading="lazy" width="800" height="530">
+                    </div>
+                    <div class="planet-intro-text reveal">
+                        <span class="planet-type-tag tag-terrestrial">Terrestrial</span>
+                        <h2 id="venus-heading">Venus</h2>
+                        <p>
+                            Venus is the second planet from the Sun, and our closest planetary neighbor.
+                            It's the <strong>hottest planet</strong> in our solar system, and is sometimes called Earth's twin
+                            due to it's similiar size .Venus spins slowly in the opposite direction from most planets .
+                        </p>
+                        <p>
+                            Its thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in 
+                            our solar system with surface temperatures hot enough to melt lead — about<strong>872 degrees Fahrenheit 
+                            (467 Celsius) </strong>. And the atmospheric pressure at the surface is about<strong>93 times</strong> what it is at sea level 
+                            on Earth. Below Venus' dense, persistent clouds, the surface has volcanoes and deformed mountains.
+                        </p>
+                        <div class="planet-mini-facts" role="list" aria-label="Venus key facts">
+                            <div class="mini-fact" role="listitem">
+                                <strong>225 days</strong>Orbital Period
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>12,104 km</strong>Diameter
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>0</strong>Moons
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>465°C</strong>Max Surface Temp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </article>
+
+         <!-- mars -->
+        <article class="planet-section" id="mars" aria-labelledby="mars-heading">
+            <div class="container">
+                <div class="planet-intro-layout">
+                    <div class="planet-visual reveal">
+                        <span class="planet-number" aria-hidden="true">04</span>
+                        <img src="https://i.pinimg.com/736x/e0/be/a0/e0bea09fd3261b3c7c8287c29c8a54f0.jpg"
+                             alt="Mars - A reddish brown rocky planet"
+                             loading="lazy" width="800" height="530">
+                    </div>
+                    <div class="planet-intro-text reveal">
+                        <span class="planet-type-tag tag-terrestrial">Terrestrial</span>
+                        <h2 id="mars-heading">Mars</h2>
+                        <p>
+                            Mars -the<strong>fourth planet</strong> of the Sun - is a very thin, dusty, cold desert world. 
+                            It is a dynamic planet with seasons, polar ice caps, extinct volcanoes, canyons
+                            and weather.
+                        </p>
+                        <p>
+                            The temperature on Mars can be as high as<strong> 70 degrees Fahrenheit (20 degrees Celsius)</strong> or as
+                            low as about<strong> -225 degrees Fahrenheit (-153 degrees Celsius)</strong>. And because the atmosphere is 
+                            so thin, heat from the Sun easily escapes this planet. If you were to stand on the surface of 
+                            Mars on the equator at noon, it would feel like spring at your feet<strong>(75 degrees Fahrenheit or 
+                            24 degrees Celsius)</strong> and winter at your head <strong>(32 degrees Fahrenheit or 0 degrees Celsius)</strong>.
+                        </p>
+                        <div class="planet-mini-facts" role="list" aria-label="Mars key facts">
+                            <div class="mini-fact" role="listitem">
+                                <strong>687 days</strong>Orbital Period
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>6,779 km</strong>Diameter
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>2</strong>Moons
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>-60°C</strong>Max Surface Temp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </article>
+
+         <!--jupiter-->
+         <article class="planet-section" id="jupiter" aria-labelledby="jupiter-heading">
+            <div class="container">
+                <div class="planet-intro-layout reverse ">
+                    <div class="planet-visual reveal">
+                        <span class="planet-number" aria-hidden="true">05</span>
+                        <img src="https://i.pinimg.com/1200x/7c/ef/37/7cef37544245c497dcde7f5256eb8622.jpg"
+                             alt="Jupiter - a gas gaint with orange and white horizontal bands"
+                             loading="lazy" width="800" height="530">
+                    </div>
+                    <div class="planet-intro-text reveal">
+                        <span class="planet-type-tag tag-gas-giant">Gas Giant</span>
+                        <h2 id="jupiter-heading">Jupiter</h2>
+                        <p>
+                            Jupiter is a world of extremes. It's the largest planet in our solar system 
+                            – if it were a hollow shell,<strong> 1,000 Earths</strong> could fit inside. It's also the oldest 
+                            planet, forming from the dust and gases left over from the Sun's formation
+                            <strong> 4.6 billion </strong> ago. 
+                        </p>
+                        <p>
+                            The vivid colors you see in thick bands across Jupiter may be plumes of sulfur 
+                            and phosphorus-containing gases rising from the planet's warmer interior. Jupiter's 
+                            fast rotation – spinning once every<strong> 10 hours</strong> – creates strong jet streams, separating 
+                            its clouds into dark belts and bright zones across long stretches.
+                        </p>
+                        <div class="planet-mini-facts" role="list" aria-label="Jupiter key facts">
+                            <div class="mini-fact" role="listitem">
+                                <strong>11.9 years</strong>Orbital Period
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>139,820 km</strong>Diameter
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>95</strong>Moons
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>-110°C</strong>Cloud Top Temp
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </article>
+
+         <!-- saturn -->
+        <article class="planet-section" id="saturn" aria-labelledby="saturn-heading">
+            <div class="container">
+                <div class="planet-intro-layout">
+                    <div class="planet-visual reveal">
+                        <span class="planet-number" aria-hidden="true">06</span>
+                        <img src="https://i.pinimg.com/736x/d1/fa/fe/d1fafe8a6fc3e55d63b109448d30e19b.jpg"
+                             alt="Saturn - a golden gas gaint with its iconic system of rings"
+                             loading="lazy" width="800" height="530">
+                    </div>
+                    <div class="planet-intro-text reveal">
+                        <span class="planet-type-tag tag-gas-giant">Gas Giant</span>
+                        <h2 id="saturn-heading">Saturn</h2>
+                        <p>
+                            The <strong>farthest planet </strong>from Earth discovered by the unaided human eye, Saturn 
+                            has been known since ancient times. The planet is named for the Roman god of 
+                            agriculture and wealth, who was also the <strong>father of Jupiter.</strong>
+                        </p>
+                        <p>
+                            Winds in the upper atmosphere reach<strong>1,600 feet per second (500 meters per second)</strong>  in the 
+                            equatorial region. In contrast, the strongest hurricane-force winds on Earth top out at about 
+                            360 feet per second (110 meters per second). And the pressure – the same kind you feel when you 
+                            dive deep underwater – is so powerful it squeezes gas into a liquid.
+                        </p>
+                        <div class="planet-mini-facts" role="list" aria-label="Saturn key facts">
+                            <div class="mini-fact" role="listitem">
+                                <strong>29.5 years days</strong>Orbital Period
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>116,460 km</strong>Diameter
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>146</strong>Moons
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>-140°C</strong>Cloud Top Temp 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </article>
+
+         <!-- uranus -->
+        <article class="planet-section" id="uranus" aria-labelledby="uranus-heading">
+            <div class="container">
+                <div class="planet-intro-layout reverse">
+                    <div class="planet-visual reveal">
+                        <span class="planet-number" aria-hidden="true">07</span>
+                        <img src="https://i.pinimg.com/1200x/ea/4a/a5/ea4aa5cb71d281f97c518bddcced798e.jpg"
+                             alt="Uranus - a pale blue ice gaint with faint rings "
+                             loading="lazy" width="800" height="530">
+                    </div>
+                    <div class="planet-intro-text reveal">
+                        <span class="planet-type-tag tag-ice-giant">Ice Gaint</span>
+                        <h2 id="uranus-heading">Uranus</h2>
+                        <p>
+                            Uranus is a very cold and windy world. The ice giant is surrounded by<strong> 13 faint rings and 28 
+                            small moons</strong>. Uranus rotates at a nearly 90-degree angle from the plane of its orbit. This unique 
+                            tilt makes Uranus appear to spin sideways, orbiting the Sun like a rolling ball.
+                        </p>
+                        <p>
+                            Uranus' atmosphere is mostly hydrogen and helium, with a small amount of methane and traces of water and 
+                            ammonia. The methane gives Uranus its signature<strong> blue color</strong>.Winds are retrograde at the equator, blowing in 
+                            the reverse direction of the planet’s rotation. But closer to the poles, winds shift to a prograde direction, 
+                            flowing with Uranus' rotation.
+                        </p>
+                        <div class="planet-mini-facts" role="list" aria-label="Uranus key facts">
+                            <div class="mini-fact" role="listitem">
+                                <strong>84 years days</strong>Orbital Period
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>50,724 km</strong>Diameter
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>27</strong>Moons
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>-195°C</strong>Min Temperature 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </article>
+
+         <!-- neptune -->
+        <article class="planet-section" id="neptune" aria-labelledby="neptune-heading">
+            <div class="container">
+                <div class="planet-intro-layout">
+                    <div class="planet-visual reveal">
+                        <span class="planet-number" aria-hidden="true">08</span>
+                        <img src="https://i.pinimg.com/736x/9e/fa/be/9efabec408dce4930112f8e8c346ae2e.jpg"
+                             alt="Neptune - a deep blue ice gaint with visible cloud bands and storm systems "
+                             loading="lazy" width="800" height="530">
+                    </div>
+                    <div class="planet-intro-text reveal">
+                        <span class="planet-type-tag tag-ice-giant">Ice Gaint</span>
+                        <h2 id="neptune-heading">Neptune</h2>
+                        <p>
+                            Dark, cold, and whipped by supersonic winds, ice giant Neptune is more than<strong> 30 times </strong>as far from the Sun 
+                            as Earth. Neptune is the only planet in our solar system not visible to the naked eye. In 2011 Neptune 
+                            completed its first 165-year orbit since its discovery in 1846.
+                        </p>
+                        <p>
+                            Neptune is our solar system's windiest world. Despite its great distance and low energy input from the Sun, Neptune's 
+                            winds can be <strong>three times </strong>stronger than Jupiter's and nine times stronger than Earth's. These winds whip clouds of 
+                            frozen methane across the planet at speeds of more than<strong> 1,200 miles </strong>per hour (2,000 kilometers per hour). 
+                        </p>
+                        <div class="planet-mini-facts" role="list" aria-label="Neptune key facts">
+                            <div class="mini-fact" role="listitem">
+                                <strong>165 years days</strong>Orbital Period
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>49,244 km</strong>Diameter
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>16</strong>Moons
+                            </div>
+                            <div class="mini-fact" role="listitem">
+                                <strong>-200°C</strong>Avg Temperature 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </article>
+
+         <!-- accessibility toolbar -->
+        <div role="complementary" aria-label="accessibility tools"
+           style="background:var(--clr-deep); border-top:1px solid var(--clr-border); padding:var(--space-sm) 0;">
+      <div class="container"
+           style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <span style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.15em;color:var(--clr-muted);text-transform:uppercase">
+            Text Size:
+        </span>
+        <button class="font-decrease contrast-btn" aria-label="Decrease text size">A-</button>
+        <button class="font-reset contrast-btn" aria-label="Reset text size">A</button>
+        <button class="font-increase contrast-btn" aria-label="Increase text size">A+</button>
+        </div>
+    </div>
+
+</main>
+
+<!-- footer -->
+
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+        <div class="footer-grid">
+             <div class="footer-brand">
+                <a class="nav-logo" href="index.html" aria-label="BigPlanetarium - Home">
+                    <svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+                    <circle cx="20" cy="20" r="18" stroke="#f0c040" stroke-width="1.5"></circle>
+                    <circle cx="20" cy="20" r="8" fill="#f0c040" opacity="0.9"></circle>
+                    <ellipse cx="20" cy="20" rx="18" ry="6"
+                             stroke="#38d9c0" stroke-width="1" fill="none"
+                             transform="rotate(-20 20 20)"></ellipse>
+                    </svg>
+                    <span class="nav-logo-text" style="font-size:0.9rem;">BigPlanetarium</span>
+                </a>
+                <p>Bristol's premier space education centre.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="planets.html">All Planets</a></li>
+                    <li><a href="earth.html">Earth</a></li>
+                    <li><a href="about.html">Visit Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Jump To</h4>
+                <ul>
+                    <li><a href="#mercury">Mercury</a></li>
+                    <li><a href="#venus">Venus</a></li>
+                    <li><a href="#mars">Mars</a></li>
+                    <li><a href="#jupiter">Jupiter</a></li>
+                    <li><a href="#saturn">Saturn</a></li>
+                    <li><a href="#neptune">Neptune</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Visit</h4>
+                <ul>
+                    <li><a href="about.html#opening">Opening Hours</a></li>
+                    <li><a href="planets.html#contact">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p> &copy; 2025 BigPlanetarium, Bristol. Educational prototype website.</p>
+            <p>
+                Images: <a href="https://in.pinterest.com/" rel="noopener noreferrer" target="_blank">Pinterest</a>
+                (public domain / CCO ).
+            </p>
+        </div>
+    </div>
+</footer>
+</div> 
+
+<!-- page wrapper -->
+ <!--lightbox modal ( shared across pages)-->
+ <div id="lightbox" class="lightbox-overlay"
+      role="dialog" aria-modal="true"
+      aria-label="Image viewer"
+      aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">✕</button>
+    <img id="lightbox-img" src="" alt="" >
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+        
+    <script src="js/main.js"></script>
+    
+</body>
+</html>
