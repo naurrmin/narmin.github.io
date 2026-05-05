@@ -200,19 +200,34 @@
                   International Space Station, capturing city lights, auroras,
                   and weather systems from 400 km above.
                 </p>
-                <div class="video-wrap reveal">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/FG0fTKAqZ5g?si=7YWrjn0rTLWHgFlq" 
-                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-                  gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <p style="color:var(--clr-muted);font-size:0.9rem;margin-top:0.5rem;">
-                  <em>Video: NASA — Earth from the ISS.
-                  <a href="https://youtu.be/FG0fTKAqZ5g?si=_Vwd6AWdwc_CxNia"
-                     rel="noopener noreferrer" target="_blank"
-                     style="color:var(--clr-accent-teal);">
-                    Watch on YouTube (opens in new tab)
-                  </a></em>
-                </p>
+                <div class="video-wrap reveal" style="max-width:800px; margin:0 auto;">
+  <a href="https://youtu.be/FG0fTKAqZ5g?si=_Vwd6AWdwc_CxNia"
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Watch Earth from the ISS on YouTube (opens in new tab)"
+     style="display:block; position:relative; border-radius:8px; overflow:hidden; border:1px solid var(--clr-border);">
+    <img
+      src="https://img.youtube.com/vi/FG0fTKAqZ5g/maxresdefault.jpg"
+      alt="Earth time-lapse from the International Space Station — thumbnail"
+      loading="lazy"
+      style="width:100%; display:block; aspect-ratio:16/9; object-fit:cover;" />
+    <!-- play button overlay -->
+    <span aria-hidden="true"
+          style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.35); transition:background 0.2s;">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="36" fill="rgba(0,0,0,0.55)"/>
+        <polygon points="28,20 56,36 28,52" fill="#f0c040"/>
+      </svg>
+    </span>
+  </a>
+</div>
+<p style="color:var(--clr-muted);font-size:0.9rem;margin-top:0.75rem;">
+  <em>Video: NASA — Earth from the ISS.
+  <a href="https://youtu.be/FG0fTKAqZ5g?si=_Vwd6AWdwc_CxNia"
+     rel="noopener noreferrer" target="_blank"
+     style="color:var(--clr-accent-teal);">
+    Watch on YouTube (opens in new tab)
+  </a></em>
+</p>
               </section>
 
               <!-- quiz -->
